@@ -1,5 +1,7 @@
 ## Laboratory work IX
 
+[![Build Status](https://travis-ci.com/nastya-asya/lab09.svg?branch=master)](https://travis-ci.com/nastya-asya/lab09)
+
 <a href="https://yandex.ru/efir/?stream_id=vYrKRcFKi46o"><img src="https://raw.githubusercontent.com/tp-labs/lab09/master/preview.png" width="640"/></a>
 
 Данная лабораторная работа посвещена изучению процесса создания артефактов на примере **Github Release**
@@ -10,19 +12,19 @@ $ open https://help.github.com/articles/creating-releases/
 
 ## Tasks
 
-- [ ] 1. Создать публичный репозиторий с названием **lab09** на сервисе **GitHub**
-- [ ] 2. Ознакомиться со ссылками учебного материала
-- [ ] 3. Получить токен для доступа к репозиториям сервиса **GitHub**
-- [ ] 4. Выполнить инструкцию учебного материала
-- [ ] 5. Составить отчет и отправить ссылку личным сообщением в **Slack**
+- [x] 1. Создать публичный репозиторий с названием **lab09** на сервисе **GitHub**
+- [x] 2. Ознакомиться со ссылками учебного материала
+- [x] 3. Получить токен для доступа к репозиториям сервиса **GitHub**
+- [x] 4. Выполнить инструкцию учебного материала
+- [x] 5. Составить отчет и отправить ссылку личным сообщением в **Slack**
 
 ## Tutorial
 
 ```sh
-$ export GITHUB_TOKEN=<полученный_токен>
-$ export GITHUB_USERNAME=<имя_пользователя>
-$ export PACKAGE_MANAGER=<пакетный менеджер>
-$ export GPG_PACKAGE_NAME=<gpg2|gpg>
+$ export GITHUB_TOKEN=****************************************
+$ export GITHUB_USERNAME=nastya-asya
+$ export PACKAGE_MANAGER=apt
+$ export GPG_PACKAGE_NAME=gpg
 ```
 
 ```sh
@@ -74,11 +76,28 @@ $ echo 'export GPG_TTY=$(tty)' >> ~/.profile
 ```sh
 $ cmake -H. -B_build -DCPACK_GENERATOR="TGZ"
 $ cmake --build _build --target package
+Scanning dependencies of target print
+[ 25%] Building CXX object CMakeFiles/print.dir/sources/print.cpp.o
+[ 50%] Linking CXX static library libprint.a
+[ 50%] Built target print
+Scanning dependencies of target demo
+[ 75%] Building CXX object CMakeFiles/demo.dir/demo/main.cpp.o
+[100%] Linking CXX executable demo
+[100%] Built target demo
+Run CPack packaging tool...
+CPack: Create package using TGZ
+CPack: Install projects
+CPack: - Run preinstall target for: print
+CPack: - Install project: print []
+CPack: Create package
+CPack: - package: /home/nastya-asya/nastya-asya/workspace/projects/lab09/_build/print-0.1.0.0-Darwin.tar.gz generated.
 ```
 
 ```sh
 $ travis login --auto
+Successfully logged in as nastya-asya!
 $ travis enable
+nastya-asya/lab09: enabled :)
 ```
 
 ```sh
